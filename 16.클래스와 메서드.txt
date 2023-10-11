@@ -74,10 +74,7 @@
                     --              --
                  (시그니처signature)                    
         - 예)
-
-                                                컴파일
-                                                 ==>
-            public int add(int x, int y) {                         add_int_int(10,50);
+            public int add(int x, int y) {        
                 int z = x + y;                    
                 return z;
             }
