@@ -19,6 +19,11 @@
         - 지연연산 이라 함 
 
 3. 중간연산과 최종연산
+    0. 스트림은 두가지 유형인 중간 연산과 최종 연산을 가짐 
+        - 중간연산 : 스트림을 처리하고 다른 스트림을 반환함
+                    스트림의 원소를 변환, 필터링, 정렬 등 중간 단계에서 처리하는 연산 
+        - 최종 연산 : 스트림을 처리하고 결과를 반환함 
+                     스트림의 최종결과를 반환하는 연산 
     1) 중간연산
     ex) - filter(), map(), sorted() 등  [file:///E:/Notes/docs/api/java.base/java/util/stream/IntStream.html]참조
         - 조건에 맞는 요소를 추출(filter)하거나 요소를 변환함(map)
@@ -27,5 +32,17 @@
     3) 중간 연산과 최종 연산에 대한 구현은 람다식을 활용함 
 
     4) 최종연산
-    ex) - forEach(), count(), sum() 등 
-        - 
+    ex) - forEach(), count(), sum() collect(), reduce() 등 
+
+4. reduce() 연산
+    1) 정의된 연산이 아닌 프로그래머가 직접 구현한 연산을 적용 
+
+    2) T reduce(T identity, BinaryOperator<T> accumulator)
+        - 최종 연산으로 스트림의 요소를 소모하며 연산을 수행 
+        - ex) 배열의 모든 요소의 합을 구하기 
+            Arrays.stream(arr).reduce(0, (a,b)-> a+b) 
+                                         ------------> 람다식 
+    
+    3) reduce() 메서드의 두번째 요소로 전달되는 람다식에 따라 다양한 기능을 수행 할 수 있음 
+        - 람다식을 직접 구현하거나 
+        - 람다식이 긴 경우 BinaryOperator를 구현한 클래스를 사용함 
